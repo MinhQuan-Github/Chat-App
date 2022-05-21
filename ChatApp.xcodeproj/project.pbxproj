@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0470E4192834F15100DC4B02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0470E4182834F15100DC4B02 /* GoogleService-Info.plist */; };
 		0470E41B2834F96A00DC4B02 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470E41A2834F96A00DC4B02 /* DatabaseManager.swift */; };
+		0470E42B283684F900DC4B02 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470E42A283684F900DC4B02 /* ChatViewController.swift */; };
 		04DC43E2283345820097F3B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC43E1283345820097F3B5 /* AppDelegate.swift */; };
 		04DC43E4283345820097F3B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC43E3283345820097F3B5 /* SceneDelegate.swift */; };
 		04DC43E6283345820097F3B5 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC43E5283345820097F3B5 /* ConversationsViewController.swift */; };
@@ -48,6 +49,8 @@
 /* Begin PBXFileReference section */
 		0470E4182834F15100DC4B02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0470E41A2834F96A00DC4B02 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		0470E41C283552FA00DC4B02 /* ChatApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatApp.entitlements; sourceTree = "<group>"; };
+		0470E42A283684F900DC4B02 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		04DC43DE283345820097F3B5 /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DC43E1283345820097F3B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04DC43E3283345820097F3B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		04DC43E0283345820097F3B5 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				0470E41C283552FA00DC4B02 /* ChatApp.entitlements */,
 				04DC4415283346470097F3B5 /* Resources */,
 				04DC4414283345D30097F3B5 /* ViewModels */,
 				04DC4413283345C70097F3B5 /* Models */,
@@ -170,6 +174,7 @@
 				04DC441D283348930097F3B5 /* VideoPlayerViewController.swift */,
 				04DC441F283348A80097F3B5 /* NewConversationViewController.swift */,
 				04DC4421283348BF0097F3B5 /* ProfileViewController.swift */,
+				0470E42A283684F900DC4B02 /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -420,6 +425,7 @@
 				04DC43E2283345820097F3B5 /* AppDelegate.swift in Sources */,
 				04DC4422283348BF0097F3B5 /* ProfileViewController.swift in Sources */,
 				04DC43E4283345820097F3B5 /* SceneDelegate.swift in Sources */,
+				0470E42B283684F900DC4B02 /* ChatViewController.swift in Sources */,
 				04DC441C283348820097F3B5 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChatApp/ChatApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8V982P952M;
@@ -632,6 +639,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChatApp/ChatApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8V982P952M;

@@ -7,9 +7,12 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class RegisterViewController: UIViewController {
 
+    private let spinner = JGProgressHUD(style: .dark)
+    
     private let scrollView : UIScrollView = {
         let screllView = UIScrollView()
         screllView.clipsToBounds = true
@@ -176,15 +179,23 @@ class RegisterViewController: UIViewController {
             alertUserrLoginError()
             return
         }
+        
+        spinner.show(in: view)
+        
         DatabaseManager.shared.userExists(with: email) { [weak self] exists in
             guard let strongSelf = self else { return }
+            
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss(animated: true)
+            }
+            
             guard !exists else {
                 strongSelf.alertUserrLoginError(message: "Look like a user account for that email address already exists.")
                 return
             }
             FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { authResult , error in
                 guard authResult != nil , error == nil else {
-                    print("Error create user")
+                    print("Error create user : \(error!)")
                     return
                 }
                 DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
