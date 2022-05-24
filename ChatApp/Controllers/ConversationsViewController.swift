@@ -41,9 +41,11 @@ class ConversationsViewController: UIViewController {
     
     @objc private func didTapComposeButton() {
         let vc = NewConversationViewController()
+        
         let navVC = UINavigationController(rootViewController: vc)
         present(navVC, animated: true , completion: nil)
     }
+   
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

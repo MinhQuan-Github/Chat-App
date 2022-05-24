@@ -127,7 +127,7 @@ class RegisterViewController: UIViewController {
     }
     
     @objc private func didTapChangeProfilePic() {
-        prosentPhotoActionSheet()
+        presentPhotoActionSheet()
     }
     
     override func viewDidLayoutSubviews() {
@@ -198,9 +198,25 @@ class RegisterViewController: UIViewController {
                     print("Error create user : \(error!)")
                     return
                 }
-                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
-                                                                    lastName: lastName,
-                                                                    emailAddress: email))
+                let chatUser = ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email)
+                DatabaseManager.shared.insertUser(with: chatUser) { success in
+                    if success {
+                        // Upload image
+                        guard let image = strongSelf.imageView.image, let data = image.pngData() else {
+                            return
+                        }
+                        let fileName = chatUser.profilePictureFilename
+                        StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName) { result in
+                            switch result {
+                            case .success(let downloadUrl):
+                                UserDefaults.standard.setValue(downloadUrl, forKey: "profile_picture_url")
+                                print(downloadUrl)
+                            case .failure(let error):
+                                print("Storage manager error: \(error)")
+                            }
+                        }
+                    }
+                }
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
             }
         }
@@ -230,7 +246,7 @@ extension RegisterViewController : UITextFieldDelegate {
 }
 
 extension RegisterViewController : UIImagePickerControllerDelegate , UINavigationControllerDelegate {
-    func prosentPhotoActionSheet() {
+    func presentPhotoActionSheet() {
         let actionSheet = UIAlertController(title: "Profile Picturee",
                                             message: "How would you like to select a picture",
                                             preferredStyle: .actionSheet)
