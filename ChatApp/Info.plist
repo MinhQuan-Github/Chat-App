@@ -41,5 +41,10 @@
 		<string>fbapi</string>
 		<string>fb-messenger-share-api</string>
 	</array>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<true/>
+    
+    <key>FacebookAdvertiserIDCollectionEnabled</key>
+    <true/>
 </dict>
 </plist>
